@@ -97,7 +97,7 @@ const sendVerifyToken = catchAsync(async (user, statusCode, res) => {
 
   res.cookie("jwt", token, cookieOptions);
   // 3) Send it to user's email
-  const verifyURL = `https://mauthemweb.com/verify`;
+  const verifyURL = `http://localhost:3000/verify`;
   const message = `Bạn là chủ tài khoản? Vui lòng xác nhận tài khoản tại:  ${verifyURL}.\nMã xác nhận: ${verifyToken}\n.Nếu không phải, vui lòng bỏ qua mail này!`;
   user.password = undefined;
   try {

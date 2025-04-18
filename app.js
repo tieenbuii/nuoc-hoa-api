@@ -30,7 +30,7 @@ app.set("view engine", "ejs");
 // Add headers before the routes are defined
 app.use(
   cors({
-    origin: "https://mauthemweb.com",
+    origin: "http://localhost:3000",
     methods: ["POST", "GET", "PUT", "PATCH", "DELETE"],
     credentials: true,
   })
