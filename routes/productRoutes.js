@@ -17,7 +17,7 @@ router
   .get(productController.getAllProducts)
   .post(
     authController.protect,
-    authController.restrictTo("admin", "employee"),
+    authController.restrictTo("admin", "user"),
     productController.uploadProductImages,
     productController.resizeProductImages,
     productController.createProduct
@@ -28,7 +28,7 @@ router
   .get(productController.getProduct)
   .patch(
     authController.protect,
-    authController.restrictTo("admin", "employee"),
+    authController.restrictTo("admin", "user"),
     productController.uploadProductImages,
     productController.resizeProductImages,
     productController.deleteImageCloud,
@@ -36,7 +36,7 @@ router
   )
   .delete(
     authController.protect,
-    authController.restrictTo("admin", "employee"),
+    authController.restrictTo("admin", "user"),
     productController.deleteImageCloud,
     productController.deleteProduct
   );

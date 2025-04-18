@@ -95,10 +95,10 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/brands", brandRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/orders", orderRouter);
-app.use("/api/v1/imports", importRouter);
-app.use("/api/v1/comments", commentRouter);
+// app.use("/api/v1/imports", importRouter);
+// app.use("/api/v1/comments", commentRouter);
 app.use("/api/v1/payments", transactionRouter);
-app.use("/api/v1/locations", locationRouter);
+// app.use("/api/v1/locations", locationRouter);
 app.use("/", viewRouter);
 
 app.all("*", (req, res, next) => {

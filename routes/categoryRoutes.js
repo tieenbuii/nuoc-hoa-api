@@ -11,7 +11,7 @@ router
   .route("/")
   .get(categoryController.getAllCategories)
   .post(
-    authController.restrictTo("employee", "admin"),
+    authController.restrictTo("user", "admin"),
     categoryController.createCategory
   );
 
@@ -19,11 +19,11 @@ router
   .route("/:id")
   .get(categoryController.getCategory)
   .patch(
-    authController.restrictTo("employee", "admin"),
+    authController.restrictTo("user", "admin"),
     categoryController.updateCategory
   )
   .delete(
-    authController.restrictTo("employee", "admin"),
+    authController.restrictTo("user", "admin"),
     categoryController.deleteCategory
   );
 

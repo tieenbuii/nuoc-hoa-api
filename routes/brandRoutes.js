@@ -10,7 +10,7 @@ router
   .route("/")
   .get(brandController.getAllBrands)
   .post(
-    authController.protect,authController.restrictTo("employee", "admin"),
+    authController.protect,authController.restrictTo("user", "admin"),
     brandController.createBrand
   );
 
@@ -18,11 +18,11 @@ router
   .route("/:id")
   .get(brandController.getBrand)
   .patch(
-    authController.protect,authController.restrictTo("employee", "admin"),
+    authController.protect,authController.restrictTo("user", "admin"),
     brandController.updateBrand
   )
   .delete(
-    authController.protect,authController.restrictTo("employee", "admin"),
+    authController.protect,authController.restrictTo("user", "admin"),
     brandController.deleteBrand
   );
 

@@ -21,7 +21,7 @@ const signToken = (id) => {
 
 const changeState = async (user, state, statusCode, res) => {
   user.active = state;
-  const message = "Cập nhật trạng thái user thành công!!!";
+  const message = "Cập nhật trạng thái người dùng thành công!!!";
   await user.save({ validateBeforeSave: false });
   user.password = undefined;
 
@@ -282,22 +282,21 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // 3) Send it to user's email
-  const resetURL = `${req.protocol}://${req.get(
-    "host"
-  )}/forgot-password`;
+  const resetURL = `${req.protocol}://${req.get("host")}/forgot-password`;
 
   const message = `Bạn quên mật khẩu? Mã xác nhận của bạn: ${resetToken}.\nĐổi mật khẩu mới tại : ${resetURL}.\nNếu không phải bạn, vui lòng bỏ qua email này!`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: "Your password reset token (valid for 10 min)",
+      subject:
+        "Mã thông báo đặt lại mật khẩu của bạn (có hiệu lực trong 10 phút)",
       message,
     });
 
     res.status(200).json({
       status: "success",
-      message: "Token sent to email!",
+      message: "Đã gửi mã thông báo tới email!",
     });
   } catch (err) {
     console.log(err);
@@ -341,7 +340,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   });
   // 2) If token has not expired, and there is user, set the new password
   if (!user) {
-    return next(new AppError("oken không hợp lệ hoặc đã hết hạn", 400));
+    return next(new AppError("Token không hợp lệ hoặc đã hết hạn", 400));
   }
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;

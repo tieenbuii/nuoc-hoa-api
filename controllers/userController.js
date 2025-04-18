@@ -79,7 +79,7 @@ exports.createAddress = catchAsync(async (req, res) => {
   await user.save({ validateBeforeSave: false });
   res.status(200).json({
     status: "success",
-    message: "You have already added address successfully.",
+    message: "Thêm địa chỉ thành công.",
     data: user,
   });
 });
@@ -102,12 +102,12 @@ exports.updateAddress = catchAsync(async (req, res) => {
     await user.save({ validateBeforeSave: false });
     res.status(200).json({
       status: "success",
-      message: "You have already updated address successfully.",
+      message: "Cập nhật địa chỉ thành công.",
     });
   }
   res.status(500).json({
     status: "error",
-    message: "This data is not exist. Please try again!!!",
+    message: "Dữ liệu này không tồn tại, vui lòng thử lại!!!",
     data: user,
   });
 });
@@ -125,13 +125,13 @@ exports.deleteAddress = catchAsync(async (req, res) => {
     await user.save({ validateBeforeSave: false });
     return res.status(200).json({
       status: "success",
-      message: "Delete address successfully.",
+      message: "Xóa thành công địa chỉ.",
       data: user,
     });
   }
   res.status(500).json({
     status: "error",
-    message: "This data is not exist. Please try again!!!",
+    message: "Dữ liệu này không tồn tại. Vui lòng thử lại!!!",
   });
 });
 exports.setDefaultAddress = catchAsync(async (req, res) => {
@@ -148,13 +148,13 @@ exports.setDefaultAddress = catchAsync(async (req, res) => {
     await user.save({ validateBeforeSave: false });
     return res.status(200).json({
       status: "success",
-      message: "Set default address successfully.",
+      message: "Đặt thành công địa chỉ.",
       data: user,
     });
   }
   res.status(500).json({
     status: "error",
-    message: "This data is not exist. Please try again!!!",
+    message: "Dữ liệu này không tồn tại. Vui lòng thử lại!!!",
   });
 });
 exports.getUserAddress = (req, res) => {
@@ -164,7 +164,7 @@ exports.getUserAddress = (req, res) => {
     data: {
       address,
     },
-    message: "Get all user address successfully.",
+    message: "Lấy thành công tất cả địa chỉ.",
   });
 };
 exports.getUser = factory.getOne(User);
