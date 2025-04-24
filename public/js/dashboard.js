@@ -320,7 +320,7 @@ async function loadAreaChart() {
       });
     });
     await respond.forEach(async (value) => {
-      // totalInvoice += value.total_month;
+      totalInvoice += value.total_month;
       await arr_invoice.forEach((month) => {
         if (
           month.id.year === value._id.year &&
